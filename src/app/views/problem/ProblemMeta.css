@@ -1,0 +1,9 @@
+.problem-meta {
+    padding-bottom: 30px;
+    overflow-wrap: break-word;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
