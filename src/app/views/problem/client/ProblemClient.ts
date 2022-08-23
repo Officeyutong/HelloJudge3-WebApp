@@ -50,7 +50,10 @@ class ProblemClient extends GeneralClient {
             contest_id: contestId,
             usedParameters: JSON.stringify(usedParameters),
             virtualID: virtualID
-        }))).data as { code: number; submission_id: number; };
+        }))).data as { code: number; submission_id: number; message?: string };
+        if (resp.code !== 0) {
+            throw new APIError(JSON.stringify(resp.message));
+        }
         return resp.submission_id;
     }
     async submitWithAnswer(
