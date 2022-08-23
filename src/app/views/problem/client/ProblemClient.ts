@@ -3,6 +3,7 @@ import qs from "qs";
 import { ProblemEditReceiveInfo, ProblemFileEntry, ProblemInfo, ProblemListEntry, ProblemSearchFilter, ProblemUpdateInfo } from "./types";
 import { ProblemTagEntry } from "../../../common/types";
 import { APIError } from "../../../Exception";
+import { showErrorModal } from "../../../dialogs/Dialog";
 class ProblemClient extends GeneralClient {
     async unlockProblem(problemID: string, inviteCode: string) {
         await this.client!.post("/api/problem/unlock", { problemID: problemID, inviteCode: inviteCode });
@@ -52,6 +53,8 @@ class ProblemClient extends GeneralClient {
             virtualID: virtualID
         }))).data as { code: number; submission_id: number; message?: string };
         if (resp.code !== 0) {
+            console.log(resp);
+            showErrorModal(JSON.stringify(resp.message));
             throw new APIError(JSON.stringify(resp.message));
         }
         return resp.submission_id;
