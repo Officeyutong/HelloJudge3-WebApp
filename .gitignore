@@ -3,7 +3,7 @@ DEBUG_TOKEN.json
 .env.production
 .eslintcache
 build.7z
-yarn.lock
+#yarn.lock
 # dependencies
 /node_modules
 /.pnp
