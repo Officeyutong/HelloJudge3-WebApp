@@ -10,11 +10,11 @@ interface BatchAddResponse {
     name: string;
     url: string;
 }
-const BatchAddDialog: React.FC<{
+const BatchAddDialog: React.FC<React.PropsWithChildren<{
     open: boolean;
     onClose: () => void;
     finish: (resp: BatchAddResponse[]) => void;
-}> = ({
+}>> = ({
     finish,
     onClose,
     open

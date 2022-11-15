@@ -3,7 +3,7 @@ import { Header, Table } from "semantic-ui-react";
 import discussionClient from "../discussion/client/DiscussionClient";
 import { DiscussionEntry } from "../discussion/client/types";
 
-const ProblemDiscussionBlock: React.FC<{ id: number }> = ({ id }) => {
+const ProblemDiscussionBlock: React.FC<React.PropsWithChildren<{ id: number }>> = ({ id }) => {
     const [discussion, setDiscussion] = useState<DiscussionEntry[]>([]);
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {

@@ -5,7 +5,7 @@ import { showSuccessPopup } from "../../../dialogs/Utils";
 import { adminClient } from "../client/AdminClient";
 import { RatedContestList } from "../client/types";
 
-const RatingManagement: React.FC<{}> = () => {
+const RatingManagement: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loading, setLoading] = useState(false);
     const [value, setValue] = useState("");
     const [contests, setContests] = useState<RatedContestList>([]);

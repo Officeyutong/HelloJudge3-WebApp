@@ -5,7 +5,7 @@ import { useDocumentTitle } from "../../../common/Utils";
 import InfoTab from "./InfoTab";
 import UserEditTab from "./UserEditTab";
 
-const PermissionPackEdit: React.FC<{}> = () => {
+const PermissionPackEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const id = parseInt(useParams<{ id: string }>().id);
     const [title, setTitle] = useState("");
     useDocumentTitle(`${title} - 权限包`);

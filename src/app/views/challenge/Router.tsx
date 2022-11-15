@@ -6,7 +6,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 const ChallengeEdit = lazy(() => import("./ChallengeEdit"));
 const ChallengeList = lazy(() => import("./ChallengeList"));
 
-const ChallengeRouter: React.FC<{}> = () => {
+const ChallengeRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
 

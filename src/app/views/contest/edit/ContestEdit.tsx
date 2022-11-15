@@ -17,7 +17,7 @@ import { ButtonClickEvent } from "../../../common/types";
 import { Link } from "react-router-dom";
 import { PUBLIC_URL } from "../../../App";
 import { showSuccessModal } from "../../../dialogs/Dialog";
-const ContestEdit: React.FC<{}> = () => {
+const ContestEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberID = parseInt(id);
     const [data, setData] = useState<ContestEditRawDataResponse | null>(null);

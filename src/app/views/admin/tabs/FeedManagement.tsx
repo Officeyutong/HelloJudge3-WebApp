@@ -7,7 +7,7 @@ import "ace-builds/src-noconflict/mode-markdown";
 import "ace-builds/src-noconflict/theme-github";
 import { Markdown } from "../../../common/Markdown";
 import { FeedList } from "../client/types";
-const FeedManagement: React.FC<{}> = () => {
+const FeedManagement: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loading, setLoading] = useState(false);
     const [feedID, setFeedID] = useState("");
     const [content, setContent] = useState("");
@@ -88,7 +88,7 @@ const FeedManagement: React.FC<{}> = () => {
     </div>;
 };
 
-const GlobalFeedList: React.FC<{ dummy: boolean }> = ({ dummy }) => {
+const GlobalFeedList: React.FC<React.PropsWithChildren<{ dummy: boolean }>> = ({ dummy }) => {
     const [page, setPage] = useState(1);
     const [pageCount, setPageCount] = useState(-1);
     const [loaded, setLoaded] = useState(false);

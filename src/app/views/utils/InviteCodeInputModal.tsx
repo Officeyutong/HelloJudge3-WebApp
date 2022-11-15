@@ -12,7 +12,7 @@ interface InviteCodeInputModalProps {
     allowClose?: boolean;
 };
 
-const InviteCodeInputModal: React.FC<InviteCodeInputModalProps> = ({
+const InviteCodeInputModal: React.FC<React.PropsWithChildren<InviteCodeInputModalProps>> = ({
     onChange, onClose, value, title, allowClose, closeWithoutConfirm
 }) => <Modal open size="tiny" closeOnDimmerClick={false}>
         <Modal.Header>

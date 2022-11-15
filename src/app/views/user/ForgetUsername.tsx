@@ -6,7 +6,7 @@ import { showErrorPopup } from "../../dialogs/Utils";
 import SendSMSCodeDialog from "../utils/SendSMSCode";
 import userClient from "./client/UserClient";
 
-const ForgetUsername: React.FC<{}> = () => {
+const ForgetUsername: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("找回用户名");
     const phone = useInputValue();
     const authcode = useInputValue();

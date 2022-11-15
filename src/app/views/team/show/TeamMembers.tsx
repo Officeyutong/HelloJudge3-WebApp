@@ -13,7 +13,7 @@ interface TeamMembersProps {
     hasManagePermission: boolean;
     isTeamOwner: boolean;
 };
-const UserCard: React.FC<{ data: TeamDetail["members"][0]; slot?: React.ReactNode }> = ({ data, slot }) => {
+const UserCard: React.FC<React.PropsWithChildren<{ data: TeamDetail["members"][0]; slot?: React.ReactNode }>> = ({ data, slot }) => {
     const makeUrl = useProfileImageMaker();
     return <Segment style={{ wordBreak: "break-all" }}>
         <Grid columns="2">
@@ -42,7 +42,7 @@ const UserCard: React.FC<{ data: TeamDetail["members"][0]; slot?: React.ReactNod
         </Grid>
     </Segment>;
 }
-const TeamMembers: React.FC<TeamMembersProps> = (props) => {
+const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props) => {
     const admins = useMemo(() => new Set(props.admins), [props.admins]);
     const normalMembers = useMemo(() => {
         const filtered = props.members.filter(x => (!admins.has(x.uid)) && x.uid !== props.owner_id);

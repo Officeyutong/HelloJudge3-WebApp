@@ -10,7 +10,7 @@ const ContestList = lazy(() => import("./ContestList"));
 const ContestShow = lazy(() => import("./show/ContestShow"));
 const ContestEdit = lazy(() => import("./edit/ContestEdit"));
 const ContestRanklist = lazy(() => import("./ContestRanklist"));
-const ContestRouter: React.FC<{}> = () => {
+const ContestRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/contest/ranklist/:contestID`} component={() => <Suspense

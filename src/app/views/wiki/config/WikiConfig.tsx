@@ -32,7 +32,7 @@ const SCHEMA: Schema = {
     }
 };
 
-const WikiConfig: React.FC<{}> = () => {
+const WikiConfig: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("编辑Wiki设置");
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);

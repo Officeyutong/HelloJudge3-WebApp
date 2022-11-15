@@ -8,7 +8,7 @@ import UserLink from "../utils/UserLink";
 import blogClient from "./client/BlogClient";
 import { BlogListEntry, BlogUserData } from "./client/types";
 
-const BlogList: React.FC<{}> = () => {
+const BlogList: React.FC<React.PropsWithChildren<{}>> = () => {
     const { uid } = useParams<{ uid: string }>();
     const numberUID = parseInt(uid);
     const [loading, setLoading] = useState(false);

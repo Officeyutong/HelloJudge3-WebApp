@@ -11,7 +11,7 @@ interface DiscussionCommentsProps {
     defaultPage: number;
 };
 
-const DiscussionComments: React.FC<DiscussionCommentsProps> = (props) => {
+const DiscussionComments: React.FC<React.PropsWithChildren<DiscussionCommentsProps>> = (props) => {
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(-1);

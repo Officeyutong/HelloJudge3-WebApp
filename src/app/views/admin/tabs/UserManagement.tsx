@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { Button, Header, Input } from "semantic-ui-react";
 import { adminClient } from "../client/AdminClient";
 
-const UserManagement: React.FC<{}> = () => {
+const UserManagement: React.FC<React.PropsWithChildren<{}>> = () => {
     const [uid, setUid] = useState("-1");
     const [switchLoading, setSwitchLoading] = useState(false);
     const switchUser = useCallback(async () => {

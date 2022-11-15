@@ -7,7 +7,7 @@ import ScoreLabel from "../utils/ScoreLabel";
 import cardClient from "./client/CardClient";
 import { ProblemCardResponse } from "./client/types";
 
-const ProblemCard: React.FC<{}> = () => {
+const ProblemCard: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberId = parseInt(id);
     const [loaded, setLoaded] = useState(false);

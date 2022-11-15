@@ -16,7 +16,7 @@ interface BatchAddMembersProps {
     teamMembers: TeamDetail["members"];
 };
 
-const BatchAddMembers: React.FC<BatchAddMembersProps> = ({ team, finishCallback, onClose, open, teamMembers }) => {
+const BatchAddMembers: React.FC<React.PropsWithChildren<BatchAddMembersProps>> = ({ team, finishCallback, onClose, open, teamMembers }) => {
     const [used, setUsed] = useState<GlobalRanklistItem[]>([]);
     const [searchResult, setSearchResult] = useState<GlobalRanklistItem[]>([]);
     const searchText = useInputValue();

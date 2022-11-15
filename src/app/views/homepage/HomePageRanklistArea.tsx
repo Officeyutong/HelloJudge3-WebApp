@@ -6,7 +6,7 @@ import { GlobalRanklistItem } from "../user/client/types";
 import userClient from "../user/client/UserClient";
 import UserLink from "../utils/UserLink";
 
-const HomepageRanklistArea: React.FC<{}> = () => {
+const HomepageRanklistArea: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<GlobalRanklistItem[]>([]);

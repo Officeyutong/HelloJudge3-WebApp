@@ -10,7 +10,7 @@ import { ButtonClickEvent } from "../../common/types";
 import { showConfirm, showErrorModal, showSuccessModal } from "../../dialogs/Dialog";
 import { PUBLIC_URL } from "../../App";
 import { Schema, validate } from "jsonschema";
-const ChallengeEdit: React.FC<{}> = () => {
+const ChallengeEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberID = parseInt(id);
     const [loading, setLoading] = useState(false);
@@ -100,8 +100,8 @@ const ChallengeEdit: React.FC<{}> = () => {
                             width="100%"
                             height="200px"
                             theme={theme}
-                        >
-                        </AceEditor>
+                        />
+                       
                     </Form.Field>
                     <Form.Field>
                         <label>挑战等级</label>
@@ -116,8 +116,8 @@ const ChallengeEdit: React.FC<{}> = () => {
                             width="100%"
                             height="100px"
                             theme={theme}
-                        >
-                        </AceEditor>
+                        />
+                        
                     </Form.Field>
                     <Message info>
                         <Message.Header>关于习题集列表</Message.Header>

@@ -7,7 +7,7 @@ interface ProblemTagLabelProps {
     onClick?: () => void;
 };
 
-const ProblemTagLabel: React.FC<ProblemTagLabelProps> = (props) => {
+const ProblemTagLabel: React.FC<React.PropsWithChildren<ProblemTagLabelProps>> = (props) => {
     const clickable = props.onClick !== undefined;
     return <Label onClick={props.onClick} style={clickable ? { cursor: "pointer" } : undefined} size="tiny" color={props.data.color as SemanticCOLORS}>
         {props.data.display}

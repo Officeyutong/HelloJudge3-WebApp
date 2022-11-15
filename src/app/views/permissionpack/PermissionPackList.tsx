@@ -5,7 +5,7 @@ import { showSuccessPopup } from "../../dialogs/Utils";
 import permissionPackClient from "./client/PermissionClient";
 import { PermissionPackListItem } from "./client/types";
 
-const PermissionPackList: React.FC<{}> = () => {
+const PermissionPackList: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<PermissionPackListItem[]>([]);
     useEffect(() => {

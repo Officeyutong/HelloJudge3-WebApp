@@ -14,7 +14,7 @@ interface ImageCardProps {
     removeCallback: () => void;
 };
 
-const ImageCard: React.FC<ImageCardProps> = (props) => {
+const ImageCard: React.FC<React.PropsWithChildren<ImageCardProps>> = (props) => {
     const [showModal, setShowModal] = useState(false);
     const removeThis = async (evt: ButtonClickEvent) => {
         const target = evt.currentTarget;

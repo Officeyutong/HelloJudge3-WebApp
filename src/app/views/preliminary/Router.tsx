@@ -6,7 +6,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const PreliminaryContestList = lazy(() => import("./PreliminaryContestList"));
 const PreliminaryContest = lazy(() => import("./PreliminaryContest"));
-const PreliminaryRouter: React.FC<{}> = () => {
+const PreliminaryRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/list/:page?`}>

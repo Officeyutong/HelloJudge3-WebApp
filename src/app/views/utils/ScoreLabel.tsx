@@ -4,7 +4,7 @@ interface ScoreLabelProps {
     fullScore: number;
 };
 
-const ScoreLabel: React.FC<ScoreLabelProps> = ({ score, fullScore }) => {
+const ScoreLabel: React.FC<React.PropsWithChildren<ScoreLabelProps>> = ({ score, fullScore }) => {
     const ratio = score / fullScore * 100;
     let color: string;
     if (ratio <= 50) color = "red";

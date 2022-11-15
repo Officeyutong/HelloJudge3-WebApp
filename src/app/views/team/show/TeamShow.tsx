@@ -20,7 +20,7 @@ import { showConfirm, showErrorModal } from "../../../dialogs/Dialog";
 import TeamManage from "./TeamManage";
 import TeamFile from "./TeamFile";
 
-const TeamShow: React.FC<{}> = () => {
+const TeamShow: React.FC<React.PropsWithChildren<{}>> = () => {
     const { team } = useParams<{ team: string }>();
     const [data, setData] = useState<null | TeamDetail>(null);
     const [loaded, setLoaded] = useState(false);

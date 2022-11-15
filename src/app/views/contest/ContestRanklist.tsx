@@ -10,7 +10,7 @@ import XLSX from "xlsx-js-style";
 import { DateTime } from "luxon";
 import { ButtonClickEvent } from "../../common/types";
 (window as (typeof window) & { qwq: any }).qwq = DateTime;
-const ContestRanklist: React.FC<{}> = () => {
+const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
     const { contestID } = useParams<{ contestID: string }>();
     const { search } = useLocation();
     const queryArgs = QueryString.parse(search.substr(1));

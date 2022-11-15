@@ -5,7 +5,7 @@ import ChallengeEntry from "./ChallengeEntry";
 import challengeClient from "./client/ChallengeClient";
 import { ChallengeListEntry } from "./client/types";
 
-const ChallengeList: React.FC<{}> = () => {
+const ChallengeList: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<ChallengeListEntry[]>([]);

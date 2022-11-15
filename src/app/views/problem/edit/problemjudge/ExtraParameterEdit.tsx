@@ -2,10 +2,10 @@ import _ from "lodash";
 import { Button, Checkbox, Header, Input, Message, Segment, Table } from "semantic-ui-react";
 import { ProblemDataProps } from "./ProblemJudgeTab";
 
-const ExtraParameterConfig: React.FC<{
+const ExtraParameterConfig: React.FC<React.PropsWithChildren<{
     data: ProblemDataProps["extra_parameter"];
     onUpdate: (data: ProblemDataProps["extra_parameter"]) => void;
-}> = ({
+}>> = ({
     data,
     onUpdate
 }) => {

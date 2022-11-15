@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "semantic-ui-react";
 import { UserProfileResponse } from "../client/types";
 
-const AcceptedProblemsTab: React.FC<{ data: UserProfileResponse["ac_problems"] }> = ({ data }) => {
+const AcceptedProblemsTab: React.FC<React.PropsWithChildren<{ data: UserProfileResponse["ac_problems"] }>> = ({ data }) => {
 
     return <div>
         {data.length === 0 ? <div>这个人很懒，还没做过题</div> : <>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Dimmer, Grid, Loader, Modal } from "semantic-ui-react";
 import userClient from "../client/UserClient";
 
-const ShowAllPermissions: React.FC<{ onClose: () => void; uid: number; }> = ({ onClose, uid }) => {
+const ShowAllPermissions: React.FC<React.PropsWithChildren<{ onClose: () => void; uid: number; }>> = ({ onClose, uid }) => {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<string[]>([]);
     useEffect(() => {

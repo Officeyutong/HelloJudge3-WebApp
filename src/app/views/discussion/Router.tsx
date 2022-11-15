@@ -7,7 +7,7 @@ const DiscussionList = lazy(() => import("./DiscussionList"));
 const DiscussionShow = lazy(() => import("./DiscussionShow"));
 
 
-const DiscussionRouter: React.FC<{}> = () => {
+const DiscussionRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/discussions/:path/:page`}>

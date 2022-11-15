@@ -11,7 +11,7 @@ import { ProblemtodoEntry } from "../problemtodo/client/types";
 import JudgeStatusLabel from "../utils/JudgeStatusLabel";
 import { FriendLinkEntry, ToolBoxEntry } from "./client/types";
 
-const BroadcastBox: React.FC<{}> = () => {
+const BroadcastBox: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<DiscussionEntry[]>([]);
@@ -51,7 +51,7 @@ const BroadcastBox: React.FC<{}> = () => {
     </Segment>;
 };
 
-const ProblemtodoBox: React.FC<{}> = () => {
+const ProblemtodoBox: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<ProblemtodoEntry[]>([]);
@@ -92,7 +92,7 @@ const ProblemtodoBox: React.FC<{}> = () => {
 };
 
 
-const FriendLinkBox: React.FC<{ data: FriendLinkEntry[] }> = ({ data }) => {
+const FriendLinkBox: React.FC<React.PropsWithChildren<{ data: FriendLinkEntry[] }>> = ({ data }) => {
     return <Segment stacked>
         <Header as="h3">
             友情链接
@@ -104,7 +104,7 @@ const FriendLinkBox: React.FC<{ data: FriendLinkEntry[] }> = ({ data }) => {
         </List>
     </Segment>
 };
-const ToolBox: React.FC<{ data: ToolBoxEntry[] }> = ({ data }) => {
+const ToolBox: React.FC<React.PropsWithChildren<{ data: ToolBoxEntry[] }>> = ({ data }) => {
     return <Segment stacked>
         <Header as="h3">
             工具箱
@@ -116,7 +116,7 @@ const ToolBox: React.FC<{ data: ToolBoxEntry[] }> = ({ data }) => {
         </Grid>
     </Segment>
 };
-const ProblemSearchBox: React.FC<{}> = () => {
+const ProblemSearchBox: React.FC<React.PropsWithChildren<{}>> = () => {
     const [text, setText] = useState("");
     const history = useHistory();
     const doSearch = useCallback(() => {
@@ -134,7 +134,7 @@ const ProblemSearchBox: React.FC<{}> = () => {
         }) as React.KeyboardEventHandler<HTMLInputElement>}></Input>
     </Segment>
 };
-const ProblemQuickAccessBox: React.FC<{}> = () => {
+const ProblemQuickAccessBox: React.FC<React.PropsWithChildren<{}>> = () => {
     const [text, setText] = useState("");
     const goto = useCallback(() => {
         if (text) {

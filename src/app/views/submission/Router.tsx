@@ -6,7 +6,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 const SubmissionList = lazy(() => import("./list/SubmissionList"));
 const SubmitAnswer = lazy(() => import("./SubmitAnswer"));
 const ShowSubmission = lazy(() => import("./show/ShowSubmission"));
-const SubmissionRouter: React.FC<{}> = () => {
+const SubmissionRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/submissions/:page`}>

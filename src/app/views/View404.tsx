@@ -3,7 +3,7 @@ import {
     Container, Message, Segment, Header
 } from "semantic-ui-react";
 import { useDocumentTitle } from "../common/Utils";
-const View404: React.FC<{}> = () => {
+const View404: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("错误");
     return <Container>
         <Header as="h1">

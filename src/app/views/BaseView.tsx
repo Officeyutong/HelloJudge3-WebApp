@@ -20,8 +20,8 @@ const useSize = (target: RefObject<HTMLElement>) => {
 
 const Container = React.memo((({ child }) => {
     return <>{child}</>
-}) as React.FC<{ child: React.ReactNode }>);
-const BaseView: React.FC<{}> = ({ children }) => {
+}) as React.FC<React.PropsWithChildren<{ child: React.ReactNode }>>);
+const BaseView: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     // const [showDiscussionDetail, setShowDiscussionDetail] = useState(false);
     const userState = useSelector((s: StateType) => s.userState);
     const logout = () => {

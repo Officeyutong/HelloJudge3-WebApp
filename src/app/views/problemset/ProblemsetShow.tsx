@@ -10,7 +10,7 @@ import UserLink from "../utils/UserLink";
 import problemsetClient from "./client/ProblemsetClient";
 import { ProblemsetPublicInfo } from "./client/types";
 
-const ProblemsetShow: React.FC<{}> = () => {
+const ProblemsetShow: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<ProblemsetPublicInfo | null>(null);

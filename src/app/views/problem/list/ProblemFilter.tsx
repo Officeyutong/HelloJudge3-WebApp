@@ -11,7 +11,7 @@ interface ProblemFilterProps {
     allTags: ProblemTagEntry[];
 }
 
-const ProblemFilter: React.FC<ProblemFilterProps> = ({
+const ProblemFilter: React.FC<React.PropsWithChildren<ProblemFilterProps>> = ({
     filter, update, allTags
 }) => {
     const keyword = useInputValue(filter.searchKeyword || "");

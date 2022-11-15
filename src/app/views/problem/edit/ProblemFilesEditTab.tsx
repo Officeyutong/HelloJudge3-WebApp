@@ -15,7 +15,7 @@ interface ProblemFilesEditProps extends ProblemFilesEntry {
 function transformTime(timestamp: number): string {
     return DateTime.fromSeconds(timestamp).toJSDate().toLocaleString();
 }
-const ProblemFilesEditTab: React.FC<ProblemFilesEditProps> = (props) => {
+const ProblemFilesEditTab: React.FC<React.PropsWithChildren<ProblemFilesEditProps>> = (props) => {
     const {
         downloads,
         files,

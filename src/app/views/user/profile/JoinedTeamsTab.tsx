@@ -2,7 +2,7 @@ import React from "react";
 import { List } from "semantic-ui-react";
 import { UserProfileResponse } from "../client/types";
 
-const JoinedTeamsTab: React.FC<{ data: UserProfileResponse["joined_teams"] }> = ({ data }) => {
+const JoinedTeamsTab: React.FC<React.PropsWithChildren<{ data: UserProfileResponse["joined_teams"] }>> = ({ data }) => {
     return <div>
         <List>
             {data.map((x, i) => <List.Item key={i

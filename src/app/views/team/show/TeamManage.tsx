@@ -9,7 +9,7 @@ interface TeamManageProps {
     teamMembers: TeamDetail["members"];
 };
 
-const TeamManage: React.FC<TeamManageProps> = (props) => {
+const TeamManage: React.FC<React.PropsWithChildren<TeamManageProps>> = (props) => {
     const [showBatchAddModal, setShowBatchAddModal] = useState(false);
     return <>
         <Button color="green" onClick={() => setShowBatchAddModal(true)}>批量添加成员</Button>

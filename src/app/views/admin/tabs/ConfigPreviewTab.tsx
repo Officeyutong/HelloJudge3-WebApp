@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import { SettingPreview } from "../client/types";
 
-const ConfigPreviewTab: React.FC<{ data: SettingPreview }> = ({ data }) => {
+const ConfigPreviewTab: React.FC<React.PropsWithChildren<{ data: SettingPreview }>> = ({ data }) => {
 
     return <div>
         <Table basic="very" celled>

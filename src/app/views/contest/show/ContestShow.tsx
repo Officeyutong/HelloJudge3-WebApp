@@ -25,7 +25,7 @@ function timestampToString(timestamp: number): string {
     return DateTime.fromSeconds(timestamp).toJSDate().toLocaleString();
 }
 
-const ContestShow: React.FC<{}> = () => {
+const ContestShow: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const location = useLocation();
     const history = useHistory();

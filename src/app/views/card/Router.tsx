@@ -5,7 +5,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const ProblemCard = lazy(() => import("./ProblemCard"));
 
-const CardRouter: React.FC<{}> = () => {
+const CardRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/problem/:id`}>

@@ -14,7 +14,7 @@ import FileDownloadArea from "./FileDownloadArea";
 import ProblemDiscussionBlock from "./ProblemDiscussionBlock";
 import ProblemStatementView from "./ProblemStatementView";
 
-const ShowProblem: React.FC<{}> = () => {
+const ShowProblem: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch<{ problemID: string }>();
     const problemID = match.params.problemID;
     const contextRef = useRef(null);

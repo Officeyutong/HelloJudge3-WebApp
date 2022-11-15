@@ -11,7 +11,7 @@ import { PreliminaryContestDetail } from "./client/types";
 type ContestInfoProps = Pick<PreliminaryContestDetail, "description" | "duration" | "uploader" | "upload_time" | "problems"> & { id: number };
 
 
-const ContestInfo: React.FC<ContestInfoProps> = ({
+const ContestInfo: React.FC<React.PropsWithChildren<ContestInfoProps>> = ({
     description,
     duration,
     uploader,

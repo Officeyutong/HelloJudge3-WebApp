@@ -7,7 +7,7 @@ interface SimpleAceWrapperProps {
     mode: string;
 };
 
-const SimpleAceWrapper: React.FC<SimpleAceWrapperProps> = (props) => {
+const SimpleAceWrapper: React.FC<React.PropsWithChildren<SimpleAceWrapperProps>> = (props) => {
     const theme = useAceTheme();
 
     return <AceEditor

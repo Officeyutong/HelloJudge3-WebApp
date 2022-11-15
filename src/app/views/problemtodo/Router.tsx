@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const ProblemtodoList = lazy(() => import("./ProblemtodoList"));
-const ProblemtodoRouter: React.FC<{}> = () => {
+const ProblemtodoRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/list`}>

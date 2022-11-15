@@ -7,7 +7,7 @@ interface ErrorAndSuccessProps {
     error: boolean;
 };
 
-const ErrorAndSuccess: React.FC<ErrorAndSuccessProps> = ({ error }) => {
+const ErrorAndSuccess: React.FC<React.PropsWithChildren<ErrorAndSuccessProps>> = ({ error }) => {
     const location = useLocation();
     let parsed: { message?: string; title?: string; } = QueryString.parse(location.search.substr(1));
     useDocumentTitle(error ? "错误" : "操作完成");

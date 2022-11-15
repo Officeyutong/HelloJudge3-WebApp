@@ -10,7 +10,7 @@ interface SubmissionFilterProps {
 };
 type ExtraSubmissionFilter = Required<{ [K in keyof SubmissionFilter]: { used: boolean, value?: Required<SubmissionFilter>[K] } }>;
 const FILTERABLE_STATUS: ("accepted" | "unaccepted" | "judging" | "waiting" | "compile_error")[] = ["accepted", "unaccepted", "judging", "waiting", "compile_error"];
-const SubmissionFilterArea: React.FC<SubmissionFilterProps> = ({
+const SubmissionFilterArea: React.FC<React.PropsWithChildren<SubmissionFilterProps>> = ({
     defaultFilter,
     onUpdate
 }) => {

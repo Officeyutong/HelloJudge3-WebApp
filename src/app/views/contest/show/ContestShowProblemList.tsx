@@ -15,7 +15,7 @@ interface ContestShowProblemListProps {
     status: number;
 };
 
-const ContestShowProblemList: React.FC<ContestShowProblemListProps> = ({
+const ContestShowProblemList: React.FC<React.PropsWithChildren<ContestShowProblemListProps>> = ({
     problems,
     rankCriterion,
     contestID,

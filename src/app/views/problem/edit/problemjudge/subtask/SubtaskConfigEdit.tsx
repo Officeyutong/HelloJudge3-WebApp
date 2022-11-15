@@ -57,7 +57,7 @@ const makeSchemaWithFiles = (files: ProblemFileEntry[]): Schema => {
         }
     });
 };
-const SubtaskConfigEdit: React.FC<SubtaskConfigEditProps> = (props) => {
+const SubtaskConfigEdit: React.FC<React.PropsWithChildren<SubtaskConfigEditProps>> = (props) => {
     const theme = useAceTheme();
     const [text, setText] = useState<string>(() => {
         const config = props.config.map(x => ({

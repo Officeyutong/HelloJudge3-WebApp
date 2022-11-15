@@ -17,7 +17,7 @@ function validateAnswer(ans: string[], user: string): boolean {
     return ans.includes(user.trim());
 }
 
-const FillBlankProblem: React.FC<FillBlankProblemProps> = ({
+const FillBlankProblem: React.FC<React.PropsWithChildren<FillBlankProblemProps>> = ({
     problem,
     problemID,
     answers,

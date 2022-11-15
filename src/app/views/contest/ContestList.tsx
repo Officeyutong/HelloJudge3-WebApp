@@ -50,7 +50,7 @@ function runningCheck(start: number, end: number): boolean {
 function transformToString(second: number): string {
     return DateTime.fromSeconds(second).toJSDate().toLocaleString();
 }
-const ContestList: React.FC<{}> = () => {
+const ContestList: React.FC<React.PropsWithChildren<{}>> = () => {
     const { page } = useParams<{ page: string }>();
     const numberPage = parseInt(page);
     const location = useLocation();

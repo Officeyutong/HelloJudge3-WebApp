@@ -17,7 +17,7 @@ function makeStatus(start: number, end: number): [{ positive?: true; negative?: 
 function timeToString(s: number): string {
     return DateTime.fromSeconds(s).toJSDate().toLocaleString();
 }
-const VirtualContestList: React.FC<{}> = () => {
+const VirtualContestList: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("虚拟比赛列表");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<VirtualContestEntry[]>([]);

@@ -8,7 +8,7 @@ import UserLink from "../utils/UserLink";
 import { WikiVersionListItem } from "./client/types";
 import wikiClient from "./client/WikiClient";
 
-const WikiVersionList: React.FC<{}> = () => {
+const WikiVersionList: React.FC<React.PropsWithChildren<{}>> = () => {
     const { page: pageID } = useParams<{ page: string }>();
     const numberPage = parseInt(pageID);
     const [data, setData] = useState<WikiVersionListItem[]>([]);

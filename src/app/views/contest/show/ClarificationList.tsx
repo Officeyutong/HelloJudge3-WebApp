@@ -14,7 +14,7 @@ interface ClarificationListProps {
     status: number;
 };
 
-const ClarificationList: React.FC<ClarificationListProps> = ({
+const ClarificationList: React.FC<React.PropsWithChildren<ClarificationListProps>> = ({
     closed,
     contestID,
     virtualID,

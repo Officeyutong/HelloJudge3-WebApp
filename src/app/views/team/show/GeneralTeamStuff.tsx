@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Container, Input, Table } from "semantic-ui-react";
 import { useInputValue } from "../../../common/Utils";
 import { showSuccessModal } from "../../../dialogs/Dialog";
@@ -15,7 +16,7 @@ interface GeneralTeamStuffProps {
 };
 
 
-const GeneralTeamStuff: React.FC<GeneralTeamStuffProps> = (props) => {
+const GeneralTeamStuff: React.FC<React.PropsWithChildren<GeneralTeamStuffProps>> = (props) => {
     const empty = props.data.length === 0;
     const inputValue = useInputValue();
     return <>

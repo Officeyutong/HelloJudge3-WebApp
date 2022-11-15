@@ -8,7 +8,7 @@ interface ProblemFilesModalProps {
     urlMaker: (filename: string) => string;
 }
 
-const ProblemFilesModal: React.FC<ProblemFilesModalProps> = ({
+const ProblemFilesModal: React.FC<React.PropsWithChildren<ProblemFilesModalProps>> = ({
     onClose,
     open,
     data,

@@ -11,7 +11,7 @@ import BatchAddDialog from "./BatchAddDialog";
 import problemsetClient from "./client/ProblemsetClient";
 import { ProblemsetEditInfo } from "./client/types";
 (window as typeof window & { lodash: any }).lodash = _;
-const ProblemsetEdit: React.FC<{}> = () => {
+const ProblemsetEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<ProblemsetEditInfo | null>(null);

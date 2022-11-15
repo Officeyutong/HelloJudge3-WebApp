@@ -51,7 +51,7 @@ function encodeFilter(filter: ProblemSearchFilter): string {
         filter: encoded === "{}" ? undefined : encoded
     });
 }
-const ProblemList: React.FC<{}> = () => {
+const ProblemList: React.FC<React.PropsWithChildren<{}>> = () => {
     const { page } = useParams<{ page: string }>();
     const numberPage = parseInt(page);
     const history = useHistory();

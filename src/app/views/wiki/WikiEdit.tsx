@@ -13,7 +13,7 @@ import AceEditor from "react-ace";
 import { ButtonClickEvent } from "../../common/types";
 import { showSuccessModal } from "../../dialogs/Dialog";
 import { PUBLIC_URL } from "../../App";
-const WikiEdit: React.FC<{}> = () => {
+const WikiEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { page: toEditPage } = useParams<{ page?: string }>();
     const { baseversion } = QueryString.parse(useLocation().search.substring(1)) as { baseversion?: string };
     const realBaseVersion = baseversion === undefined ? -1 : parseInt(baseversion);

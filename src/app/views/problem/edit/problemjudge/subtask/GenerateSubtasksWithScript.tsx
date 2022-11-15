@@ -14,7 +14,7 @@ interface ScriptGeneratrProps {
     update: (data: ProblemDataProps["subtasks"]) => void;
 };
 
-const GenerateSubtasksWithScript: React.FC<ScriptGeneratrProps> = (props) => {
+const GenerateSubtasksWithScript: React.FC<React.PropsWithChildren<ScriptGeneratrProps>> = (props) => {
     const [code, setCode] = useState("");
     const theme = useAceTheme();
     const input = useInputValue("data#.in");

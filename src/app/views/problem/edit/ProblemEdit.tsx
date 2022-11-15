@@ -13,7 +13,7 @@ const ProblemFilesEditTab = lazy(() => import("./ProblemFilesEditTab"));
 const ProblemJudgeTab = lazy(() => import("./problemjudge/ProblemJudgeTab"));
 const ProblemTags = lazy(() => import("./ProblemTagsTab"));
 const StatementEditTab = lazy(() => import("./StatetementEditTab"));
-const ProblemEdit: React.FC<{}> = () => {
+const ProblemEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { problemID } = useParams<{ problemID: string }>();
     const numberID = parseInt(problemID);
     const [loaded, setLoaded] = useState(false);

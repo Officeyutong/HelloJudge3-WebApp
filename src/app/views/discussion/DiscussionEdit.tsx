@@ -13,7 +13,7 @@ interface DiscussionEditProps {
     path: string;
 };
 
-const DiscussionEdit: React.FC<DiscussionEditProps> = ({ id, edit, finishCallback, path }) => {
+const DiscussionEdit: React.FC<React.PropsWithChildren<DiscussionEditProps>> = ({ id, edit, finishCallback, path }) => {
     const theme = useAceTheme();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");

@@ -14,7 +14,7 @@ function timeStampToString(seconds: number): string {
     return DateTime.fromSeconds(seconds).toJSDate().toLocaleString();
 }
 
-const VirtualContestCreate: React.FC<{}> = () => {
+const VirtualContestCreate: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberID = parseInt(id);
     const [loaded, setLoaded] = useState(false);

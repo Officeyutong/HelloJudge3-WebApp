@@ -12,7 +12,7 @@ import { ContestProblemShow } from "../contest/client/types";
 import problemClient from "../problem/client/ProblemClient";
 import { ProblemInfo } from "../problem/client/types";
 
-const SubmitAnswer: React.FC<{}> = () => {
+const SubmitAnswer: React.FC<React.PropsWithChildren<{}>> = () => {
     const location = useLocation();
     const { virtualID, contest } = QueryString.parse(location.search.substr(1)) as { virtualID?: string; contest?: string };
     const { problem } = useParams<{ problem: string }>();

@@ -16,7 +16,7 @@ interface ChallengeEntryReducerType {
     loaded: boolean;
 }
 type Actions = { type: "update"; payload: ChallengeDetail } | { type: "reset" }
-const ChallengeEntry: React.FC<ChallengeEntryProps> = (props) => {
+const ChallengeEntry: React.FC<React.PropsWithChildren<ChallengeEntryProps>> = (props) => {
     const [state, dispatch] = useReducer((state: ChallengeEntryReducerType, action: Actions) => {
         switch (action.type) {
             case "reset":

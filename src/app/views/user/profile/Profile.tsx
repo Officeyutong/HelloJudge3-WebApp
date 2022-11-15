@@ -10,7 +10,7 @@ import DescriptionTab from "./DescriptionTab";
 import GeneralFollowingTab from "./GeneralFollowingTab";
 import JoinedTeamsTab from "./JoinedTeamsTab";
 
-const Profile: React.FC<{}> = () => {
+const Profile: React.FC<React.PropsWithChildren<{}>> = () => {
     const uid = parseInt(useParams<{ uid: string }>().uid);
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);

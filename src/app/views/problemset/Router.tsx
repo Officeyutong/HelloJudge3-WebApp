@@ -5,7 +5,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 const ProblemsetEdit = lazy(() => import("./ProblemsetEdit"));
 const ProblemsetList = lazy(() => import("./ProblemsetList"));
 const ProblemsetShow = lazy(() => import("./ProblemsetShow"));
-const ProblemsetRouter: React.FC<{}> = () => {
+const ProblemsetRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/list/:page`}>

@@ -6,7 +6,7 @@ import { Image } from "semantic-ui-react";
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
 SwiperCore.use([Pagination])
-const HomepageSwiper: React.FC<{ data: HomepageSwiperList }> = ({ data }) => {
+const HomepageSwiper: React.FC<React.PropsWithChildren<{ data: HomepageSwiperList }>> = ({ data }) => {
     return <Swiper
         slidesPerView={1}
         pagination={{ clickable: true }}

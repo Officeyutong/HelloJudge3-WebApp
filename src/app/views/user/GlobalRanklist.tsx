@@ -39,7 +39,7 @@ function encodeFilter(filter: RanklistFilter): string {
     });
     return ret === "" ? "" : "?" + ret;
 }
-const GlobalRanklist: React.FC<{}> = () => {
+const GlobalRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
     const { page } = useParams<{ page: string }>();
     const numberPage = parseInt(page);
     const history = useHistory();

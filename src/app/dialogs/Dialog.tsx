@@ -85,7 +85,7 @@ const showErrorModal = (message?: string, title: string = "错误", withReturnTo
 const showSuccessModal = (message?: string, title: string = "操作完成", withReturnToHome: boolean = false) => {
     show(message, title, false, true, withReturnToHome);
 };
-const ConfirmModal: React.FC<{ content?: string; title?: string; onConfirm: () => void; onCancel?: () => void; }> = (props) => {
+const ConfirmModal: React.FC<React.PropsWithChildren<{ content?: string; title?: string; onConfirm: () => void; onCancel?: () => void; }>> = (props) => {
     const [open, setOpen] = useState(true);
     return <Confirm
         content={props.content}

@@ -4,7 +4,7 @@ import { Markdown } from "../../common/Markdown";
 import { useDocumentTitle } from "../../common/Utils";
 import miscClient from "./client/MiscClient";
 
-const Help: React.FC<{}> = () => {
+const Help: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaded] = useState(false);
     const [text, setText] = useState("");
     useEffect(() => {

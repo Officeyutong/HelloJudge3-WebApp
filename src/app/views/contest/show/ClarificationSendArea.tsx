@@ -11,7 +11,7 @@ interface ClarificationSendAreaProps {
     refresh: () => void;
 };
 
-const ClarificationSendArea: React.FC<ClarificationSendAreaProps> = (props) => {
+const ClarificationSendArea: React.FC<React.PropsWithChildren<ClarificationSendAreaProps>> = (props) => {
     const [content, setContent] = useState("");
     const theme = useAceTheme();
     const sendClar = async (evt: ButtonClickEvent) => {

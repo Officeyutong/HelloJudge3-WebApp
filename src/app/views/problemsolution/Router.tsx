@@ -3,7 +3,7 @@ import { useRouteMatch } from "react-router";
 import { Route } from "react-router-dom";
 import SolutionCreateView from "./SolutionEditView";
 
-const ProblemSolutionRouter: React.FC<{}> = () => {
+const ProblemSolutionRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/user_create/:problemID`} component={() => <SolutionCreateView admin={false}></SolutionCreateView>}></Route>

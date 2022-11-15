@@ -41,7 +41,7 @@ function encodeFilterToQuertString(filter: SubmissionFilter): string {
     if (Object.keys(filter).length === 0) return "";
     return QueryString.stringify({ filter: Object.entries(filter).filter(x => x[1] !== undefined).map(([key, value]) => `${key}=${value}`).join(",") });
 }
-const SubmissionList: React.FC<{}> = () => {
+const SubmissionList: React.FC<React.PropsWithChildren<{}>> = () => {
     const location = useLocation();
     const params = useParams<{ page: string }>();
     const page = parseInt(params.page);

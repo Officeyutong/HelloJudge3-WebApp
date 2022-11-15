@@ -5,7 +5,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 const VirtualContestCreate = lazy(() => import("./VirtualContestCreate"));
 const VirtualContestList = lazy(() => import("./VirtualContestList"));
 
-const VirtualContestRouter: React.FC<{}> = () => {
+const VirtualContestRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/create/:id`}>

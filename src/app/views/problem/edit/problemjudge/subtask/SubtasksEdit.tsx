@@ -40,7 +40,7 @@ type ActionType = { type: "modify"; index: number; data: SubtaskEntry } |
 { type: "append"; data: SubtaskEntry } |
 { type: "remove"; index: number };
 
-const SubtaskEdit: React.FC<SubtasksEditProps> = (props) => {
+const SubtaskEdit: React.FC<React.PropsWithChildren<SubtasksEditProps>> = (props) => {
     const { onUpdate, files, subtasks: _subtasks } = props;
     // console.log("init data", props.subtasks);
     // const update = (d: SubtaskType) => {

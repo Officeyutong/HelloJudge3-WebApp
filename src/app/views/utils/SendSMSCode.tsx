@@ -17,7 +17,7 @@ enum States {
     CODE_SENDED = 8, //验证码已发送
     CODE_ERROR = 9,//验证码发送错误
 };
-const SendSMSCodeDialog: React.FC<{ phone: string; mustNotUse: boolean; onClose: () => void }> = ({ phone, mustNotUse, onClose }) => {
+const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustNotUse: boolean; onClose: () => void }>> = ({ phone, mustNotUse, onClose }) => {
     const [siteKey, setSiteKey] = useState("");
     const [state, setState] = useState<States>(States.UNLOADED);
     const [token, setToken] = useState<string | null>(null);

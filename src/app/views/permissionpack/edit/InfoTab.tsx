@@ -6,7 +6,7 @@ import { useAceTheme } from "../../../states/StateUtils";
 import AceEditor from "react-ace";
 import { v4 as uuidv4 } from "uuid";
 import { showSuccessModal } from "../../../dialogs/Dialog";
-const InfoTab: React.FC<{ id: number; updateTitle: (s: string) => void; }> = ({ id, updateTitle }) => {
+const InfoTab: React.FC<React.PropsWithChildren<{ id: number; updateTitle: (s: string) => void; }>> = ({ id, updateTitle }) => {
     const [data, setData] = useState<PermissionPackDetail | null>(null);
     const [permStr, setPermStr] = useState("");
     const [loaded, setLoaded] = useState(false);

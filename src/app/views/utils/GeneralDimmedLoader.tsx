@@ -1,6 +1,6 @@
 import { Dimmer, Loader } from "semantic-ui-react";
 
-const GeneralDimmedLoader: React.FC<{}> = () => <div style={{ height: "400px" }}>
+const GeneralDimmedLoader: React.FC<React.PropsWithChildren<{}>> = () => <div style={{ height: "400px" }}>
     <Dimmer active>
         <Loader>
             加载页面中...

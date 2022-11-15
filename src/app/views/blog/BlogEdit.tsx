@@ -10,7 +10,7 @@ import AceEditor from "react-ace";
 import { PUBLIC_URL } from "../../App";
 import { showSuccessModal } from "../../dialogs/Dialog";
 
-const BlogEdit: React.FC<{}> = () => {
+const BlogEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id?: string }>();
     const editing = id !== undefined;
     const numberId = id ? parseInt(id) : -1;

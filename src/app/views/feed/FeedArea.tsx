@@ -4,7 +4,7 @@ import { converter } from "../../common/Markdown";
 import { useProfileImageMaker } from "../../common/Utils";
 import { FeedStreamEntry } from "./client/types";
 
-const FeedArea: React.FC<{ data: FeedStreamEntry[] }> = ({ data }) => {
+const FeedArea: React.FC<React.PropsWithChildren<{ data: FeedStreamEntry[] }>> = ({ data }) => {
     const makeImageURL = useProfileImageMaker();
     return <Feed>
         {data.map((x, i) => <Feed.Event key={i}>

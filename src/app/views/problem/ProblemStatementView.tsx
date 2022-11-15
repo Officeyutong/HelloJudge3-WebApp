@@ -4,7 +4,7 @@ import { ProblemStatement } from "./client/types";
 import * as clipboard from "clipboardy";
 import { converter } from "../../common/Markdown";
 import "./ProblemMeta.css";
-const ProblemMetaBlock: React.FC<{ value: string; name: string; preBlock?: boolean; withCopy?: boolean }> = ({ name, preBlock, value, withCopy }) => {
+const ProblemMetaBlock: React.FC<React.PropsWithChildren<{ value: string; name: string; preBlock?: boolean; withCopy?: boolean }>> = ({ name, preBlock, value, withCopy }) => {
     const innerHTML = preBlock === undefined ? converter.makeHtml(value) : value;
     return <div>
         {value !== "" && <>
@@ -23,10 +23,10 @@ const ProblemMetaBlock: React.FC<{ value: string; name: string; preBlock?: boole
     </div>;
 };
 
-const ProblemStatementView: React.FC<{
+const ProblemStatementView: React.FC<React.PropsWithChildren<{
     data: Omit<ProblemStatement, "subtasks"> & { subtasks?: ProblemStatement["subtasks"] };
     showSubtasks?: boolean;
-}> = ({ data, showSubtasks }) => {
+}>> = ({ data, showSubtasks }) => {
     const willShowSubtask = (showSubtasks === undefined) ? true : showSubtasks;
     return <>
         <ProblemMetaBlock name="题目背景" value={data.background} withCopy={false}></ProblemMetaBlock>

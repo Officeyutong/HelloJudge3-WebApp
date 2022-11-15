@@ -13,7 +13,7 @@ const MemoryUnitMapping: { [K in MemoryUnit]: { label: string; ratio: number; } 
     millionbyte: { label: "MB", ratio: 1024 * 1024 }
 };
 
-const MemoryCostLabel: React.FC<MemoryCostLabelProps> = ({ memoryCost }) => {
+const MemoryCostLabel: React.FC<React.PropsWithChildren<MemoryCostLabelProps>> = ({ memoryCost }) => {
     const [unit, setUnit] = usePreferredMemoryUnit("kilobyte");
     useEffect(() => {
         if (unit !== "byte" && unit !== "kilobyte" && unit !== "gigabyte" && unit !== "millionbyte") {

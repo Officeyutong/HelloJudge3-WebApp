@@ -14,7 +14,7 @@ import PermissionGroupTab from "./tabs/PermissionGroupTab";
 import RatingManagement from "./tabs/RatingManagement";
 import UserManagement from "./tabs/UserManagement";
 
-const AdminView: React.FC<{}> = () => {
+const AdminView: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("后台管理");
     const [loaded, setLoaded] = useState(false);
     const [basicData, setBasicData] = useState<AdminBasicInfo | null>(null);

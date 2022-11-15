@@ -14,7 +14,7 @@ interface TeamFileProps {
 
 };
 
-const TeamFile: React.FC<TeamFileProps> = ({ teamID, isAdmin }) => {
+const TeamFile: React.FC<React.PropsWithChildren<TeamFileProps>> = ({ teamID, isAdmin }) => {
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<TeamFileEntry[]>([]);

@@ -13,7 +13,7 @@ interface ExtraTagEntry extends ProblemTagEntry {
     modified: boolean;
 }
 (window as (typeof window & { popup: any })).popup = showSuccessPopup;
-const TagsEdit: React.FC<{}> = () => {
+const TagsEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("题目标签编辑");
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);

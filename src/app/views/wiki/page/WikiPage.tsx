@@ -9,7 +9,7 @@ import { GetWikiConfigResponse, WikiPageDetail } from "../client/types";
 import wikiClient from "../client/WikiClient";
 import SideMenu from "./SideMenu";
 type LocalConfigType = GetWikiConfigResponse<false>;
-const WikiPage: React.FC = () => {
+const WikiPage: React.FC<React.PropsWithChildren<unknown>> = () => {
     const { page } = useParams<{ page?: string }>();
     const realPage = page === undefined ? -1 : parseInt(page);
     const [loaded, setLoaded] = useState(false);

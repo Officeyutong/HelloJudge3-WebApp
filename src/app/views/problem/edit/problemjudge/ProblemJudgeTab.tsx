@@ -28,7 +28,7 @@ interface ProblemDataProps extends DataEntryProps {
 
 
 
-const ProblemJudgeTab: React.FC<ProblemDataProps> = (data) => {
+const ProblemJudgeTab: React.FC<React.PropsWithChildren<ProblemDataProps>> = (data) => {
     const update = useCallback((localData: Partial<DataEntryProps>) => {
         const { extra_parameter, files, input_file_name, output_file_name, problem_type, spj_filename, submitAnswer, subtasks, using_file_io } = {
             extra_parameter: data.extra_parameter,
@@ -67,8 +67,8 @@ const ProblemJudgeTab: React.FC<ProblemDataProps> = (data) => {
             }
         });
     };
-    const updateExtraParameter = useCallback(d => update({ extra_parameter: d }), [update]);
-    const updateSubtasks = useCallback(d => update({ subtasks: d }), [update]);
+    const updateExtraParameter = useCallback((d: any) => update({ extra_parameter: d }), [update]);
+    const updateSubtasks = useCallback((d: any) => update({ subtasks: d }), [update]);
     return <div>
         {loading && <Dimmer active>
             <Loader></Loader>

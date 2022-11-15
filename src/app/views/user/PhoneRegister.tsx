@@ -12,7 +12,7 @@ import { StateType } from "../../states/Manager";
 import SendSMSCodeDialog from "../utils/SendSMSCode";
 import userClient from "./client/UserClient";
 
-const PhoneRegister: React.FC<{}> = () => {
+const PhoneRegister: React.FC<React.PropsWithChildren<{}>> = () => {
     const username = useInputValue();
     const email = useInputValue();
     const phone = useInputValue();

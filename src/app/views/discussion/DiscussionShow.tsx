@@ -12,7 +12,7 @@ import { DiscussionDetail } from "./client/types";
 import DiscussionComments from "./DiscussionComments";
 import AceEditor from "react-ace";
 import { useAceTheme } from "../../states/StateUtils";
-const DiscussionShow: React.FC<{}> = () => {
+const DiscussionShow: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberID = parseInt(id);
     const [loaded, setLoaded] = useState(false);

@@ -10,7 +10,7 @@ import ContestInfo from "./ContestInfo";
 import FillBlankProblem from "./FillBlankProblem";
 import SelectionProblem from "./SelectionProblem";
 
-const PreliminaryContest: React.FC<{}> = () => {
+const PreliminaryContest: React.FC<React.PropsWithChildren<{}>> = () => {
     const { contest, problem } = useParams<{ contest: string; problem?: string; }>();
     const [data, setData] = useState<PreliminaryContestDetail | null>(null);
     const [loading, setLoading] = useState(false);

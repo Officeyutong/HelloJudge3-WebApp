@@ -6,7 +6,7 @@ import { useDocumentTitle, useInputValue } from "../../common/Utils";
 import SendSMSCodeDialog from "../utils/SendSMSCode";
 import userClient from "./client/UserClient";
 
-const PhoneAuth: React.FC<{}> = () => {
+const PhoneAuth: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("绑定手机号");
     const [loading, setLoading] = useState(false);
     const history = useHistory();

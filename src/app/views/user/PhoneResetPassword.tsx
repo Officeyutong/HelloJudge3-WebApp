@@ -7,7 +7,7 @@ import { showSuccessPopup } from "../../dialogs/Utils";
 import SendSMSCodeDialog from "../utils/SendSMSCode";
 import userClient from "./client/UserClient";
 
-const PhoneResetPassword: React.FC<{}> = () => {
+const PhoneResetPassword: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("手机号重置密码");
     const phone = useInputValue();
     const password = useInputValue();

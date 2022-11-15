@@ -11,7 +11,7 @@ import { useDocumentTitle, useInputValue, usePasswordSalt } from "../../common/U
 import { showSuccessPopup } from "../../dialogs/Utils";
 import userClient from "./client/UserClient";
 
-const EmailResetPasswordView: React.FC<{}> = () => {
+const EmailResetPasswordView: React.FC<React.PropsWithChildren<{}>> = () => {
 
     const params = useParams<{ token: string }>();
     const token = decodeURIComponent(decodeURIComponent(params.token));

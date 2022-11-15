@@ -5,7 +5,7 @@ import { showSuccessPopup } from "../../../dialogs/Utils";
 import ProblemTagLabel from "../../utils/ProblemTagLabel";
 import problemClient from "../client/ProblemClient";
 
-const ProblemTags: React.FC<{ id: number; defaultTags: ProblemTagEntry[] }> = ({ id, defaultTags }) => {
+const ProblemTags: React.FC<React.PropsWithChildren<{ id: number; defaultTags: ProblemTagEntry[] }>> = ({ id, defaultTags }) => {
     const [allTags, setAllTags] = useState<ProblemTagEntry[]>([]);
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);

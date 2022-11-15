@@ -4,9 +4,9 @@ import { useAlreadyLogin, useProfileImageMaker } from "../../../common/Utils";
 import { FolloweeItem, FollowerItem } from "../client/types";
 import userClient from "../client/UserClient";
 
-const GeneralFollowingTab: React.FC<{
+const GeneralFollowingTab: React.FC<React.PropsWithChildren<{
     provider: (page: number) => Promise<{ pageCount: number; data: FolloweeItem[] | FollowerItem[] }>
-}> = ({ provider }) => {
+}>> = ({ provider }) => {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<FolloweeItem[] | FollowerItem[]>([]);
     const [page, setPage] = useState(1);

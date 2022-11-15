@@ -7,7 +7,7 @@ interface SideMenuProps {
     menu: WikiNavigationListItem[];
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ menu }) => {
+const SideMenu: React.FC<React.PropsWithChildren<SideMenuProps>> = ({ menu }) => {
     const [expanding, setExpanding] = useState<number[]>([]);
     useEffect(() => {
         setExpanding([]);

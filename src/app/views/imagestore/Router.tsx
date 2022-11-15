@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const ImageList = lazy(() => import("./ImageList"));
-const ImageStoreRouter: React.FC<{}> = () => {
+const ImageStoreRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
 

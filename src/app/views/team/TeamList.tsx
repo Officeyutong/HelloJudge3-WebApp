@@ -8,7 +8,7 @@ import UserLink from "../utils/UserLink";
 import teamClient from "./client/TeamClient";
 import { TeamListEntry } from "./client/types";
 
-const TeamList: React.FC<{}> = () => {
+const TeamList: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("团队列表");
     const [data, setData] = useState<TeamListEntry[]>([]);
     const [loaded, setLoaded] = useState(false);

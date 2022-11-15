@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import PermissionPackEdit from "./edit/PermissionPackEdit";
 import UserPacks from "./UserPacks";
 
-const PermissionPackRouter: React.FC<{}> = () => {
+const PermissionPackRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/user_packs`} component={UserPacks}></Route>

@@ -11,7 +11,7 @@ import discussionClient from "./client/DiscussionClient";
 import { DiscussionEntry } from "./client/types";
 import DiscussionEdit from "./DiscussionEdit";
 
-const DiscussionList: React.FC<{}> = () => {
+const DiscussionList: React.FC<React.PropsWithChildren<{}>> = () => {
     const { path, page } = useParams<{ path: string; page: string; }>();
     const [loadingCount, setLoadingCount] = useState(0);
     const [pathDisplay, setPathDisplay] = useState("");

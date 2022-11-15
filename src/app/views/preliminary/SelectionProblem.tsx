@@ -25,12 +25,12 @@ function validateAnswer(valid: string[], user: string[]): boolean {
 function letterOf(index: number): string {
     return String.fromCharCode("A".charCodeAt(0) + index);
 }
-const SelectionQuestion: React.FC<{
+const SelectionQuestion: React.FC<React.PropsWithChildren<{
     question: PreliminaryQuestionOfChoices;
     userAnswers: string[];
     onChangeAnswer: (ans: string[]) => void;
     showAnswer: boolean;
-}> = ({
+}>> = ({
     userAnswers,
     onChangeAnswer,
     question,
@@ -71,7 +71,7 @@ const SelectionQuestion: React.FC<{
         </>;
     }
 
-const SelectionProblem: React.FC<SelectionProblemProps> = ({
+const SelectionProblem: React.FC<React.PropsWithChildren<SelectionProblemProps>> = ({
     // contestID,
     // problemCount,
     problem,

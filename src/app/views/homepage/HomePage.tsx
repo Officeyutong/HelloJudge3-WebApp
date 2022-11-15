@@ -14,7 +14,7 @@ import { HomePageData } from "./client/types";
 import { BroadcastBox, FriendLinkBox, ProblemQuickAccessBox, ProblemSearchBox, ProblemtodoBox, ToolBox } from "./HomePageBoxes";
 import HomepageRanklistArea from "./HomePageRanklistArea";
 
-const HomePage: React.FC<{}> = () => {
+const HomePage: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("主页");
     const appName = useSelector((s: StateType) => s.userState.userData.appName);
     const contextRef = useRef(null);

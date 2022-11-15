@@ -17,7 +17,7 @@ interface CodeInputProps {
 
 };
 
-const CodeInput: React.FC<CodeInputProps> = (props) => {
+const CodeInput: React.FC<React.PropsWithChildren<CodeInputProps>> = (props) => {
     const [code, setCode] = useState(props.defaultCode);
     const [currentLanguage, setCurrentLanguage] = useState(props.defaultLanguage);
     const [params, setParams] = useState<number[]>(props.usedParameters);

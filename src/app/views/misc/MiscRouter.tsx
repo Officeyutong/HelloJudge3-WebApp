@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const Help = lazy(() => import("./Help"));
-const MiscRouter: React.FC<{}> = () => {
+const MiscRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/help`}>

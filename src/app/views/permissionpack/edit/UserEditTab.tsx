@@ -6,7 +6,7 @@ import { showSuccessPopup } from "../../../dialogs/Utils";
 import permissionPackClient from "../client/PermissionClient";
 import { PermissionPackUserItem } from "../client/types";
 
-const UserEditTab: React.FC<{ id: number }> = ({ id }) => {
+const UserEditTab: React.FC<React.PropsWithChildren<{ id: number }>> = ({ id }) => {
     const [data, setData] = useState<PermissionPackUserItem[]>([]);
     const [page, setPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);

@@ -10,7 +10,7 @@ interface ProblemEditAreaProps {
 };
 
 
-const ProblemEditArea: React.FC<ProblemEditAreaProps> = ({ data, update }) => {
+const ProblemEditArea: React.FC<React.PropsWithChildren<ProblemEditAreaProps>> = ({ data, update }) => {
 
     return <>
         <Table celled>

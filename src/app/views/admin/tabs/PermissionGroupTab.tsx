@@ -9,10 +9,10 @@ import { showSuccessPopup } from "../../../dialogs/Utils";
 import "ace-builds/src-noconflict/mode-plain_text";
 import "ace-builds/src-noconflict/theme-github";
 import { useAceTheme } from "../../../states/StateUtils";
-const PermissionGroupItemEdit: React.FC<{
+const PermissionGroupItemEdit: React.FC<React.PropsWithChildren<{
     data: PermissionGroupInstance;
     onUpdate: (d: PermissionGroupInstance) => void;
-}> = ({ data, onUpdate }) => {
+}>> = ({ data, onUpdate }) => {
     // const [theme, themeURL] = useAceThemeTuple();
     const theme = useAceTheme();
     return <div>
@@ -45,7 +45,7 @@ const PermissionGroupItemEdit: React.FC<{
     </div>;
 };
 
-const PermissionGroupTab: React.FC<{}> = () => {
+const PermissionGroupTab: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<PermissionGroupList | null>(null);

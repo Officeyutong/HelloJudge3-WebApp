@@ -11,7 +11,7 @@ interface StatementEditProps extends ProblemEditStatement {
     onUpdate: (data: ProblemEditStatement) => void;
 };
 
-const StatementEditTab: React.FC<StatementEditProps> = (props) => {
+const StatementEditTab: React.FC<React.PropsWithChildren<StatementEditProps>> = (props) => {
     const {
         id,
         onUpdate

@@ -8,7 +8,7 @@ const WikiVersionList = lazy(() => import("./WikiVersionList"));
 const WikiEdit = lazy(() => import("./WikiEdit"));
 const WikiConfig = lazy(() => import("./config/WikiConfig"));
 const WikiPage = lazy(() => import("./page/WikiPage"));
-const WikiRouter: React.FC<{}> = () => {
+const WikiRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/versions/:page`}>

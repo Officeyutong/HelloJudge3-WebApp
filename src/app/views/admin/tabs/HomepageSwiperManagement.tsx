@@ -5,7 +5,7 @@ import HomepageSwiper from "../../utils/HomepageSwiper";
 import { adminClient } from "../client/AdminClient";
 import { HomepageSwiperList } from "../client/types";
 
-const HomepageSwiperManagement: React.FC<{}> = () => {
+const HomepageSwiperManagement: React.FC<React.PropsWithChildren<{}>> = () => {
     //TODO: 没写完
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);

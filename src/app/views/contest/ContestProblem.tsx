@@ -13,7 +13,7 @@ import utilClient from "../utils/client/UtilClient";
 import contestClient from "./client/ContestClient";
 import { ContestProblemShow } from "./client/types";
 
-const ContestProblem: React.FC<{}> = () => {
+const ContestProblem: React.FC<React.PropsWithChildren<{}>> = () => {
     const { contestID, problemID } = useParams<{ contestID: string; problemID: string }>();
     const location = useLocation();
     const virtualID = parseInt(QueryString.parse(location.search.substr(1)).virtual_contest as string || "-1");

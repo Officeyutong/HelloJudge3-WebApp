@@ -9,7 +9,7 @@ interface FileDownloadAreaProps {
     urlMaker: (filename: string) => string;
 };
 
-const FileDownloadArea: React.FC<FileDownloadAreaProps> = ({ data, urlMaker }) => {
+const FileDownloadArea: React.FC<React.PropsWithChildren<FileDownloadAreaProps>> = ({ data, urlMaker }) => {
     const [showFiles, setShowFiles] = useState(false);
     const downloads = useMemo(() => new Set(data.downloads), [data.downloads]);
     return <>

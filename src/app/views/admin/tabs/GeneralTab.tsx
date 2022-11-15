@@ -3,7 +3,7 @@ import { Grid, Icon, SemanticICONS, Statistic } from "semantic-ui-react";
 import { GeneralInfo } from "../client/types";
 
 
-const GeneralView: React.FC<{ data: GeneralInfo }> = ({ data }) => {
+const GeneralView: React.FC<React.PropsWithChildren<{ data: GeneralInfo }>> = ({ data }) => {
 
     return <div>
         <Grid columns="3">

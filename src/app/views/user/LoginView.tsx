@@ -12,7 +12,7 @@ import { showErrorModal, showSuccessModal } from "../../dialogs/Dialog";
 import { StateType } from "../../states/Manager";
 import userClient from "./client/UserClient";
 
-const LoginView: React.FC<{}> = () => {
+const LoginView: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("用户登录");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

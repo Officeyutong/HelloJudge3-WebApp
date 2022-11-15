@@ -12,7 +12,7 @@ interface TestcaseTableProps {
     files: FilesType
 };
 
-const TestcaseTable: React.FC<TestcaseTableProps> = ({
+const TestcaseTable: React.FC<React.PropsWithChildren<TestcaseTableProps>> = ({
     testcases, onUpdate, files
 }) => {
     const update = onUpdate;

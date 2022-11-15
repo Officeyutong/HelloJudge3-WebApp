@@ -12,7 +12,7 @@ import { Markdown } from "../../../common/Markdown";
 import { ButtonClickEvent } from "../../../common/types";
 import { showSuccessModal } from "../../../dialogs/Dialog";
 
-const ClarificationEdit: React.FC<{}> = () => {
+const ClarificationEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { id } = useParams<{ id: string }>();
     const numberID = parseInt(id);
     useDocumentTitle("编辑提问回复");

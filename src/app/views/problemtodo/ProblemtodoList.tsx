@@ -8,7 +8,7 @@ import { showSuccessPopup } from "../../dialogs/Utils";
 import JudgeStatusLabel from "../utils/JudgeStatusLabel";
 import problemtodoClient from "./client/ProblemtodoClient";
 import { ProblemtodoEntry } from "./client/types";
-const ProblemtodoList: React.FC<{}> = () => {
+const ProblemtodoList: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<ProblemtodoEntry[]>([]);

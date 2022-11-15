@@ -6,7 +6,7 @@ import TagsEdit from "./TagsEdit";
 const ShowProblem = lazy(() => import("./ShowProblem"));
 const ProblemEdit = lazy(() => import("./edit/ProblemEdit"));
 const ProblemList = lazy(() => import("./list/ProblemList"));
-const ProblemRouter: React.FC<{}> = () => {
+const ProblemRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     // console.log("problem match = ", match);
     return <>

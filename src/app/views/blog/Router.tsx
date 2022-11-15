@@ -8,7 +8,7 @@ import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 const BlogEdit = lazy(() => import("./BlogEdit"));
 const BlogList = lazy(() => import("./BlogList"));
 
-const BlogRouter: React.FC<{}> = () => {
+const BlogRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
 

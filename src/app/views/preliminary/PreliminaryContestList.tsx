@@ -6,7 +6,7 @@ import { useDocumentTitle } from "../../common/Utils";
 import preliminaryClient from "./client/PreliminaryClient";
 import { PreliminaryContestListEntry } from "./client/types";
 
-const PreliminaryContestList: React.FC<{}> = () => {
+const PreliminaryContestList: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("笔试题库");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<PreliminaryContestListEntry[]>([]);

@@ -6,7 +6,7 @@ import imageStoreClient from "./client/ImageStoreClient";
 import { ImageListEntry } from "./client/types";
 import ImageCard from "./ImageCard";
 
-const ImageList: React.FC<{}> = () => {
+const ImageList: React.FC<React.PropsWithChildren<{}>> = () => {
     const [loaded, setLoaed] = useState(false);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);

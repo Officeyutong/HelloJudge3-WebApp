@@ -29,7 +29,7 @@ function validStuffThings(text: string): boolean {
     }
     return true;
 }
-const TeamEdit: React.FC<{}> = () => {
+const TeamEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const { team } = useParams<{ team: string }>();
     const teamID = parseInt(team);
     const [loaded, setLoaded] = useState(false);

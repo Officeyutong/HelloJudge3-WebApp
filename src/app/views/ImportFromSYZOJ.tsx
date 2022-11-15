@@ -6,7 +6,7 @@ import { ButtonClickEvent } from "../common/types";
 import { useDocumentTitle, useInputValue } from "../common/Utils";
 import utilClient from "./utils/client/UtilClient";
 
-const ImportFromSYZOJ: React.FC<{}> = () => {
+const ImportFromSYZOJ: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("从SYZOJ导入题目");
     const [syzojNG, setSyzojNG] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");

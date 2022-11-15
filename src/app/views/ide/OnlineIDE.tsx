@@ -35,7 +35,7 @@ function loadStoredData(): IDERunStoredData | null {
 function saveData(data: IDERunStoredData) {
     window.localStorage.setItem("hellojudge2-ide", JSON.stringify(data));
 }
-const OnlineIDE: React.FC<{}> = () => {
+const OnlineIDE: React.FC<React.PropsWithChildren<{}>> = () => {
     const usePolling = useSelector((s: StateType) => s.userState.userData.usePolling);
 
     const [loading, setLoading] = useState(false);

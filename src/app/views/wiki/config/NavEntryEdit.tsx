@@ -8,7 +8,7 @@ interface NavEntryProps {
     onRemove: () => void
 }
 
-const NavEntryEdit: React.FC<NavEntryProps> = ({ data, onRemove, onUpdate }) => {
+const NavEntryEdit: React.FC<React.PropsWithChildren<NavEntryProps>> = ({ data, onRemove, onUpdate }) => {
     const theme = useAceTheme();
     return <div>
         <Header as="h2">{data.title}</Header>

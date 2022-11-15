@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import GeneralDimmedLoader from "../utils/GeneralDimmedLoader";
 
 const OnlineIDE = lazy(() => import("./OnlineIDE"));
-const OnlineIDERouter: React.FC<{}> = () => {
+const OnlineIDERouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
 

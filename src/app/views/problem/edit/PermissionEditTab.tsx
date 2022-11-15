@@ -8,7 +8,7 @@ interface PermissionEditProps extends ProblemPermission {
     onUpdate: (data: ProblemPermission) => void;
 };
 
-const PermissionEdit: React.FC<PermissionEditProps> = (props) => {
+const PermissionEdit: React.FC<React.PropsWithChildren<PermissionEditProps>> = (props) => {
 
     const data: ProblemPermission = {
         public: props.public,

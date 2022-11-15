@@ -7,7 +7,7 @@ import TeamEdit from "./edit/TeamEdit";
 const TeamList = lazy(() => import("./TeamList"));
 const TeamShow = lazy(() => import("./show/TeamShow"));
 
-const TeamRouter: React.FC<{}> = () => {
+const TeamRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/team`}>

@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import ShowAllPermissions from "./ShowAllPermissions";
 import { showErrorModal, showSuccessModal } from "../../../dialogs/Dialog";
 import md5 from "md5";
-const ProfileEdit: React.FC<{}> = () => {
+const ProfileEdit: React.FC<React.PropsWithChildren<{}>> = () => {
     const uid = parseInt(useParams<{ uid: string }>().uid);
     const [data, setData] = useState<UserProfileResponse | null>(null);
     const [loaded, setLoaded] = useState(false);

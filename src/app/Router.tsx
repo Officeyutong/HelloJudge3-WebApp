@@ -94,7 +94,7 @@ const SubRoutes = () => {
     </>
     return displayBaseView ? <BaseView>{routers}</BaseView> : routers;
 };
-const MyRouter: React.FC<{}> = () => {
+const MyRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const clientLoaded = useSelector((s: StateType) => s.generalClient !== null && s.unwrapClient !== null && s.unwrapExtraClient !== null);
     return <Router>
         {clientLoaded && <Route path="/rs">

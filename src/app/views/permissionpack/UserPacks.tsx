@@ -6,7 +6,7 @@ import { showSuccessModal } from "../../dialogs/Dialog";
 import permissionPackClient from "./client/PermissionClient";
 import { UserPermissionPackDetail } from "./client/types";
 
-const UserPacks: React.FC<{}> = () => {
+const UserPacks: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("我的可用权限包");
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<UserPermissionPackDetail[]>([]);

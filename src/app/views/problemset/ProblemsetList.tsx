@@ -8,7 +8,7 @@ import { ProblemsetListItem } from "./client/types";
 
 
 
-const ProblemsetList: React.FC<{}> = () => {
+const ProblemsetList: React.FC<React.PropsWithChildren<{}>> = () => {
     useDocumentTitle("习题集列表");
 
     const params = useParams<{ page: string }>();

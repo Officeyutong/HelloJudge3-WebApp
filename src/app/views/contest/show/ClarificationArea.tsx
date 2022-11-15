@@ -10,7 +10,7 @@ interface ClarificationAreaProps extends ClarificationDetailResponse {
     removeCallback: () => void;
 };
 
-const ClarificationArea: React.FC<ClarificationAreaProps> = (props) => {
+const ClarificationArea: React.FC<React.PropsWithChildren<ClarificationAreaProps>> = (props) => {
     const managable = props.managable;
     const makeProfileImage = useProfileImageMaker();
     return <Grid columns="2">

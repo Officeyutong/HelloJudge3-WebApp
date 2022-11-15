@@ -14,7 +14,7 @@ interface CreateProblemsetModalProps {
     title: string;
 };
 
-const CreateProblemsetModal: React.FC<CreateProblemsetModalProps> = ({ contest, onClose, open, title }) => {
+const CreateProblemsetModal: React.FC<React.PropsWithChildren<CreateProblemsetModalProps>> = ({ contest, onClose, open, title }) => {
     const nameEdit = useInputValue(`补题 - ${title}`);
     const [openInNewTab, setOpenInNewTab] = useState(false);
     const submit = async (evt: ButtonClickEvent) => {

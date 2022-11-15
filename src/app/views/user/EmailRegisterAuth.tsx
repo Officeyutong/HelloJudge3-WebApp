@@ -10,7 +10,7 @@ import { useDocumentTitle, useInputValue } from "../../common/Utils";
 import { showSuccessPopup } from "../../dialogs/Utils";
 import userClient from "./client/UserClient";
 
-const EmailRegisterAuth: React.FC<{}> = () => {
+const EmailRegisterAuth: React.FC<React.PropsWithChildren<{}>> = () => {
 
     const params = useParams<{ token: string }>();
     const token = decodeURIComponent(decodeURIComponent(params.token));

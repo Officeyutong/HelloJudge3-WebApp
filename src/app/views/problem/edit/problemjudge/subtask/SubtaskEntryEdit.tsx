@@ -14,7 +14,7 @@ interface SubtaskEntryEditProps {
 
 
 
-const SubtaskEntryEdit: React.FC<SubtaskEntryEditProps> = (props) => {
+const SubtaskEntryEdit: React.FC<React.PropsWithChildren<SubtaskEntryEditProps>> = (props) => {
     const {
         subtask, files
     } = props;

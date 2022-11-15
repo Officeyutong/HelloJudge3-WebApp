@@ -60,6 +60,6 @@ const Markdown = connect((state: StateType) => ({ state: state }))
         return <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(markdown) }} {...(_.omit(props, ["markdown", "state", "dispatch"]))} >
 
         </div>
-    }) as React.FC<{ markdown: string, state: StateType } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>>);
+    }) as React.FC<React.PropsWithChildren<{ markdown: string, state: StateType } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>>>);
 
 export { converter, Markdown };

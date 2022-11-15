@@ -14,7 +14,7 @@ const PhoneResetPassword = lazy(() => import("./PhoneResetPassword"))
 const Profile = lazy(() => import("./profile/Profile"))
 const ProfileEdit = lazy(() => import("./profileedit/ProfileEdit"))
 const PhoneAuth = lazy(() => import("./PhoneAuth"));
-const UserRouter: React.FC<{}> = () => {
+const UserRouter: React.FC<React.PropsWithChildren<{}>> = () => {
     const match = useRouteMatch();
     return <>
         <Route exact path={`${match.path}/login`} >
