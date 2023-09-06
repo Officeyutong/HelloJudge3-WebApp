@@ -1,15 +1,19 @@
 import QueryString from "qs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { Button, Dimmer, Header, Label, Loader, Message, Segment, Table } from "semantic-ui-react";
-import { useDocumentTitle } from "../../common/Utils";
+import { Button, Container, Dimmer, Header, Label, Loader, Message, Pagination, Segment, Table } from "semantic-ui-react";
+import { useCurrentUid, useDocumentTitle } from "../../common/Utils";
 import contestClient from "./client/ContestClient";
 import { ContestRanklist as ContestRanklistType } from "./client/types";
 // import XLSX from "xlsx";
 import XLSX from "xlsx-js-style";
 import { DateTime } from "luxon";
 import { ButtonClickEvent } from "../../common/types";
+import _ from "lodash";
 (window as (typeof window) & { qwq: any }).qwq = DateTime;
+
+const ROWS_PER_PAGE = 100;
+
 const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
     const { contestID } = useParams<{ contestID: string }>();
     const { search } = useLocation();
@@ -17,6 +21,26 @@ const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
     const virtualID = parseInt(queryArgs.virtual_contest as (string | undefined) || "-1");
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState<ContestRanklistType | null>(null);
+    const [page, setPage] = useState(1);
+    const currentUser = useCurrentUid();
+    /// The current user's rank
+    const selfIndex = useMemo(() => {
+        if (data === null) return null;
+        for (let i = 0; i < data.ranklist.length; i++) {
+            if (data.ranklist[i].uid === currentUser) return i;
+        }
+        return null;
+    }, [currentUser, data])
+    const showingData = useMemo(() => {
+        if (data === null) return [];
+        const currChunk = _.chunk(data.ranklist, ROWS_PER_PAGE)[page - 1].map(s => ({ ...s, isSelf: false }));
+        if (selfIndex !== null) {
+            return [{ ...data.ranklist[selfIndex], isSelf: true }, ...currChunk];
+        } else {
+            return currChunk;
+        }
+    }, [data, page, selfIndex]);
+    const totalPages = data !== null ? Math.ceil(data.ranklist.length / ROWS_PER_PAGE) : 0;
     useEffect(() => {
         if (!loaded) {
             (async () => {
@@ -150,8 +174,12 @@ const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                        {data.ranklist.map((x, i) => <Table.Row key={i}>
-                            <Table.Cell textAlign="center">
+                        {showingData.map((x, i) => <Table.Row key={i}>
+                            {x.isSelf ? <Table.Cell>
+                                <Label color="green">我</Label>
+                                <Label color="green">排名 {(selfIndex || 0) + 1}</Label>
+
+                            </Table.Cell> : <Table.Cell textAlign="center">
                                 {(() => {
                                     switch (x.rank) {
                                         case 1:
@@ -164,7 +192,7 @@ const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
                                             return <div>{x.rank}</div>
                                     }
                                 })()}
-                            </Table.Cell>
+                            </Table.Cell>}
                             <Table.Cell>
                                 <a href={`/profile/${x.uid}`}>{x.username}</a>
                                 {x.virtual && <Label color="red">虚拟提交</Label>}
@@ -196,6 +224,9 @@ const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
                         </Table.Row>)}
                     </Table.Body>
                 </Table>
+                <Container textAlign="center">
+                    <Pagination totalPages={totalPages} activePage={page} onPageChange={(_, e) => setPage(e.activePage as number)}></Pagination>
+                </Container>
             </Segment>
             <div>
                 <Segment style={{ width: "max-content" }} >
