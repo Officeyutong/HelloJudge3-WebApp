@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
-import { Grid, Header, Segment, Popup, Button, Container, Label } from "semantic-ui-react";
+import React, { useMemo, useState } from "react";
+import { Grid, Header, Segment, Popup, Button, Container, Label, Pagination, Divider } from "semantic-ui-react";
 import { useProfileImageMaker } from "../../../common/Utils";
 import UserLink from "../../utils/UserLink";
 import { TeamDetail } from "../client/types";
+import _ from "lodash";
 
 interface TeamMembersProps {
     members: TeamDetail["members"];
@@ -42,6 +43,9 @@ const UserCard: React.FC<React.PropsWithChildren<{ data: TeamDetail["members"][0
         </Grid>
     </Segment>;
 }
+
+const ITEMS_PER_PAGE = 30;
+
 const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props) => {
     const admins = useMemo(() => new Set(props.admins), [props.admins]);
     const normalMembers = useMemo(() => {
@@ -50,7 +54,11 @@ const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props)
         return filtered;
     }, [admins, props.members, props.owner_id]);
     const adminMembers = useMemo(() => props.members.filter(x => (admins.has(x.uid)) || x.uid === props.owner_id), [admins, props.members, props.owner_id])
-
+    const [page, setPage] = useState(1);
+    const totalPages = Math.ceil(normalMembers.length / ITEMS_PER_PAGE);
+    const showingNormalMembers = useMemo(() => {
+        return _.chunk(normalMembers, ITEMS_PER_PAGE)[page - 1];
+    }, [normalMembers, page]);
     return <>
         <Header as="h3">
             管理员
@@ -74,7 +82,7 @@ const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props)
                 普通用户
             </Header>
             <Grid columns="3">
-                {normalMembers.map(x => <Grid.Column key={x.uid}>
+                {showingNormalMembers.map(x => <Grid.Column key={x.uid}>
                     <UserCard data={x} slot={props.hasManagePermission && <Container textAlign="right">
                         <Popup
                             position="left center"
@@ -91,6 +99,10 @@ const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props)
                     </Container>}></UserCard>
                 </Grid.Column>)}
             </Grid>
+            <Divider></Divider>
+            <Container textAlign="center">
+                <Pagination totalPages={totalPages} activePage={page} onPageChange={(_, e) => setPage(e.activePage as number)}></Pagination>
+            </Container>
         </>}
     </>;
 };
