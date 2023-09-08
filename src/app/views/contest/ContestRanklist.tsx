@@ -32,7 +32,7 @@ const ContestRanklist: React.FC<React.PropsWithChildren<{}>> = () => {
         return null;
     }, [currentUser, data])
     const showingData = useMemo(() => {
-        if (data === null) return [];
+        if (data === null || data.ranklist.length === 0) return [];
         const currChunk = _.chunk(data.ranklist, ROWS_PER_PAGE)[page - 1].map(s => ({ ...s, isSelf: false }));
         if (selfIndex !== null) {
             return [{ ...data.ranklist[selfIndex], isSelf: true }, ...currChunk];

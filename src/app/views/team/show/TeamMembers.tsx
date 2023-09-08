@@ -57,6 +57,7 @@ const TeamMembers: React.FC<React.PropsWithChildren<TeamMembersProps>> = (props)
     const [page, setPage] = useState(1);
     const totalPages = Math.ceil(normalMembers.length / ITEMS_PER_PAGE);
     const showingNormalMembers = useMemo(() => {
+        if (normalMembers.length === 0) return [];
         return _.chunk(normalMembers, ITEMS_PER_PAGE)[page - 1];
     }, [normalMembers, page]);
     return <>
