@@ -1,8 +1,9 @@
 import GeneralClient from "../../../common/GeneralClient";
 import { ProgrammingLanguageEntry } from "../../../common/types";
+import { AliyunCaptchaPreparationResp, RecaptchaPreparationResp } from "./types";
 
 class UtilClient extends GeneralClient {
-    async recaptchaPreparation(): Promise<{ site_key: string }> {
+    async recaptchaPreparation(): Promise<RecaptchaPreparationResp | AliyunCaptchaPreparationResp> {
         return (await this.client!.post("/api/phoneutil/preparation")).data;
     }
     async sendSMSCode(phone: string, client_response: any, must_not_use: boolean): Promise<{ code: number; message: string }> {

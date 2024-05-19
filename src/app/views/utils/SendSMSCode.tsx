@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Dimmer, Grid, Loader, Message, Segment } from 'semantic-ui-react';
 import utilClient from './client/UtilClient';
+import { AliyunCaptchaPreparationResp, RecaptchaPreparationResp } from './client/types';
+import AliyunCaptcha, { AliyunAuthResponse, AliyunCaptchaRefType } from './AliyunCaptcha';
 (window as typeof window & { recaptchaOptions: any }).recaptchaOptions = {
     useRecaptchaNet: true,
 };
@@ -18,19 +20,24 @@ enum States {
     CODE_ERROR = 9,//验证码发送错误
 };
 const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustNotUse: boolean; onClose: () => void }>> = ({ phone, mustNotUse, onClose }) => {
-    const [siteKey, setSiteKey] = useState("");
+    // const [siteKey, setSiteKey] = useState("");
+    const [captchaPrep, setCaptchaPrep] = useState<AliyunCaptchaPreparationResp | RecaptchaPreparationResp | null>(null);
     const [state, setState] = useState<States>(States.UNLOADED);
-    const [token, setToken] = useState<string | null>(null);
+    // const [token, setToken] = useState<string | null>(null);
+    const [authResult, setAuthResult] = useState<string | AliyunAuthResponse | null>(null);
     const [message, setMessage] = useState<string>("");
     const [sended, setSended] = useState(false);
     const recaptchaRef = useRef<ReCAPTCHA | any>();
+    const aliyunRef = useRef<AliyunCaptchaRefType>(null);
+    // const resetRef = useRef<ReCAPTCHA | AliyunCaptchaRefType | null>(null);
     useEffect(() => {
         (async () => {
             switch (state) {
                 case States.UNLOADED:
                     setState(States.LOADING);
                     utilClient.recaptchaPreparation().then(resp => {
-                        setSiteKey(resp.site_key);
+                        // setSiteKey(resp.site_key);
+                        setCaptchaPrep(resp);
                         setState(States.LOADED);
                     }).catch(() => {
                         setState(States.ERROR);
@@ -45,11 +52,12 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
     const sendCode = async () => {
         setSended(true);
         setState(States.CODE_SENDING);
-        let resp = await utilClient.sendSMSCode(phone, token, mustNotUse);
+        let resp = await utilClient.sendSMSCode(phone, authResult, mustNotUse);
         setMessage(resp.message);
         if (resp.code === -1) setState(States.CODE_ERROR);
         else setState(States.CODE_SENDED);
-        recaptchaRef.current!.reset();
+        if (recaptchaRef.current) recaptchaRef.current!.reset();
+        else if (aliyunRef.current) aliyunRef.current!.reset();
     };
     return <div>
         <Segment>
@@ -59,17 +67,28 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
                 <Grid columns="3" centered>
                     <Grid.Column>
                         <Grid columns="1">
-                            <Grid.Column>
-                                <ReCAPTCHA
+                            <Grid.Column style={{ minHeight: "70px" }}>
+                                {captchaPrep?.provider === "recaptcha" && <ReCAPTCHA
                                     ref={recaptchaRef}
-                                    sitekey={siteKey}
+                                    sitekey={captchaPrep.site_key}
                                     asyncScriptOnLoad={() => setState(States.RECAPTCHA_LOADED)}
                                     onChange={token => {
-                                        setToken(token);
+                                        // setToken(token);
+                                        setAuthResult(token);
                                         setState(States.AUTHED);
 
                                     }}
-                                ></ReCAPTCHA>
+                                ></ReCAPTCHA>}
+                                {captchaPrep?.provider === "aliyun" && <AliyunCaptcha
+                                    ref={aliyunRef}
+                                    appKey={captchaPrep.appKey}
+                                    scene={captchaPrep.scene}
+                                    onSuccess={resp => {
+                                        setAuthResult(resp);
+                                        setState(States.AUTHED);
+                                    }}
+                                    onSuccessLoad={() => setState(States.RECAPTCHA_LOADED)}
+                                ></AliyunCaptcha>}
                             </Grid.Column>
 
                             <Grid.Column>
