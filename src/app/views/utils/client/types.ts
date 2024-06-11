@@ -9,7 +9,14 @@ interface AliyunCaptchaPreparationResp {
     scene: string;
 };
 
+interface AliyunCaptchaNewPreparationResp {
+    provider: "aliyun2";
+    sceneId: string;
+    prefix: string;
+}
+
 export type {
     AliyunCaptchaPreparationResp,
-    RecaptchaPreparationResp
+    RecaptchaPreparationResp,
+    AliyunCaptchaNewPreparationResp
 }

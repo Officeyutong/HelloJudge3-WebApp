@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Dimmer, Grid, Loader, Message, Segment } from 'semantic-ui-react';
 import utilClient from './client/UtilClient';
-import { AliyunCaptchaPreparationResp, RecaptchaPreparationResp } from './client/types';
+import { AliyunCaptchaNewPreparationResp, AliyunCaptchaPreparationResp, RecaptchaPreparationResp } from './client/types';
 import AliyunCaptcha, { AliyunAuthResponse, AliyunCaptchaRefType } from './AliyunCaptcha';
+import AliyunCaptchaNew from "./AliyunCaptchaNew";
 (window as typeof window & { recaptchaOptions: any }).recaptchaOptions = {
     useRecaptchaNet: true,
 };
@@ -20,23 +21,19 @@ enum States {
     CODE_ERROR = 9,//验证码发送错误
 };
 const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustNotUse: boolean; onClose: () => void }>> = ({ phone, mustNotUse, onClose }) => {
-    // const [siteKey, setSiteKey] = useState("");
-    const [captchaPrep, setCaptchaPrep] = useState<AliyunCaptchaPreparationResp | RecaptchaPreparationResp | null>(null);
+    const [captchaPrep, setCaptchaPrep] = useState<AliyunCaptchaPreparationResp | RecaptchaPreparationResp | AliyunCaptchaNewPreparationResp | null>(null);
     const [state, setState] = useState<States>(States.UNLOADED);
-    // const [token, setToken] = useState<string | null>(null);
     const [authResult, setAuthResult] = useState<string | AliyunAuthResponse | null>(null);
     const [message, setMessage] = useState<string>("");
     const [sended, setSended] = useState(false);
     const recaptchaRef = useRef<ReCAPTCHA | any>();
     const aliyunRef = useRef<AliyunCaptchaRefType>(null);
-    // const resetRef = useRef<ReCAPTCHA | AliyunCaptchaRefType | null>(null);
     useEffect(() => {
         (async () => {
             switch (state) {
                 case States.UNLOADED:
                     setState(States.LOADING);
                     utilClient.recaptchaPreparation().then(resp => {
-                        // setSiteKey(resp.site_key);
                         setCaptchaPrep(resp);
                         setState(States.LOADED);
                     }).catch(() => {
@@ -89,13 +86,26 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
                                     }}
                                     onSuccessLoad={() => setState(States.RECAPTCHA_LOADED)}
                                 ></AliyunCaptcha>}
+                                {captchaPrep?.provider === "aliyun2" && <AliyunCaptchaNew
+                                    prefix={captchaPrep.prefix}
+                                    scene={captchaPrep.sceneId}
+                                    onSuccessLoad={() => setState(States.RECAPTCHA_LOADED)}
+                                    onSuccess={resp => {
+                                        setAuthResult(resp);
+                                        setState(States.AUTHED);
+                                        // 阿里云2的验证成功了可以直接发送
+                                        sendCode();
+                                    }}
+                                    retrying={sended}
+                                ></AliyunCaptchaNew>
+                                }
                             </Grid.Column>
 
                             <Grid.Column>
                                 <Button color="green" onClick={onClose}>
                                     关闭
                                 </Button>
-                                {(state >= States.AUTHED) && <Button color="green" loading={state === States.CODE_SENDING} onClick={sendCode}>
+                                {(state >= States.AUTHED) && (captchaPrep?.provider !== "aliyun2") && <Button color="green" loading={state === States.CODE_SENDING} onClick={sendCode}>
                                     {!sended ? "发送验证码" : "重发验证码"}
                                 </Button>}
                             </Grid.Column>
