@@ -46,10 +46,10 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
             };
         })();
     }, [state]);
-    const sendCode = async () => {
+    const sendCode = async (currAuthResult?: string) => {
         setSended(true);
         setState(States.CODE_SENDING);
-        let resp = await utilClient.sendSMSCode(phone, authResult, mustNotUse);
+        let resp = await utilClient.sendSMSCode(phone, currAuthResult || authResult, mustNotUse);
         setMessage(resp.message);
         if (resp.code === -1) setState(States.CODE_ERROR);
         else setState(States.CODE_SENDED);
@@ -94,7 +94,7 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
                                         setAuthResult(resp);
                                         setState(States.AUTHED);
                                         // 阿里云2的验证成功了可以直接发送
-                                        sendCode();
+                                        sendCode(resp);
                                     }}
                                     retrying={sended}
                                 ></AliyunCaptchaNew>
@@ -105,7 +105,7 @@ const SendSMSCodeDialog: React.FC<React.PropsWithChildren<{ phone: string; mustN
                                 <Button color="green" onClick={onClose}>
                                     关闭
                                 </Button>
-                                {(state >= States.AUTHED) && (captchaPrep?.provider !== "aliyun2") && <Button color="green" loading={state === States.CODE_SENDING} onClick={sendCode}>
+                                {(state >= States.AUTHED) && (captchaPrep?.provider !== "aliyun2") && <Button color="green" loading={state === States.CODE_SENDING} onClick={() => sendCode()}>
                                     {!sended ? "发送验证码" : "重发验证码"}
                                 </Button>}
                             </Grid.Column>
